@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+body{
+  margin: 0; padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header{
+  color: black;
+  font-size: 40px;
+  background-color: rgb(218, 64, 64);
+  /* height: 5rem; */
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding-left: 50px;
+  border-bottom: 5px black solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.countWrapper{
+  font-size: 30px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  text-align: right;
+  padding-right: 5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.cardsDisplay{
+  display: grid;
+  margin: 1rem 0rem 0 3rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 5px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
 }
 
-.App-link {
-  color: #61dafb;
+.cardsDisplay > div{
+  color: red;
+  height: 22rem;
+  width: 18rem;
+  display: grid;
+  grid-template-rows: 4fr 1fr 1fr;
+  border: 1px black solid;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cardImage{
+  border-bottom: 1px black solid;
+  padding: 0.5rem;
+}
+
+.cardName{
+  border-bottom: 1px black solid;
+  padding: 0.5rem;
+  /* justify-self: center; */
+
+}
+.cardOccupation{
+  border-bottom: 1px black solid;
+  padding: 0.5rem;
+  /* justify-self: center; */
 }
