@@ -2,8 +2,10 @@ import React from "react";
 
 function DisplayCards(props) {
   return (
-    <div>
-      <div className="cardImage" onClick={props.click}>Image</div>
+    <div className="wrapper">
+      <div>
+        <img src="" className="cardImage" onClick={props.click} className="cardImage"></img>
+      </div>
       <div className="cardName">Name: {props.name}</div> 
       <div className="cardOccupation">Occupation: {props.occupation}</div>
     </div>

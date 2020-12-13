@@ -12,8 +12,6 @@ function App() {
   const [streak, setStreak] = useState(0);
   const [currentGame, setCurrentGame] = useState([]);
   const [rowGeneration, setRowGeneration] = useState([]);
-  
-
   const [characterData, setCharacterData] = useState(
     [['Andrew', 'Andrew'],
       ['Dudasz', 'Prezidente'],
@@ -26,7 +24,15 @@ function App() {
       ['J', 'J'],
       ['K', 'K']]
   );
-
+  
+  // useEffect runs now if currentGame changes . The very first render (when the page loads) also generates the rows
+  // which are used later to display the cards
+  useEffect(() => {
+    setCharacterData(shuffleArray(characterData));
+    setRowGeneration(generateRows)
+    console.log(streak)
+    console.log(currentGame)
+  }, [currentGame])
 
   const clickImage = (id) => {
     let currentGameValue = currentGame.includes(characterData[id])
@@ -56,11 +62,6 @@ function App() {
     return array
   }
 
-
-
-
-  
-
   // using loop to put stuff into an array, which we later use to display 12 objects
   function generateRows() {
     let rows = [];
@@ -77,12 +78,7 @@ function App() {
       return rows
     }
 
-  useEffect(() => {
-    setCharacterData(shuffleArray(characterData));
-    setRowGeneration(generateRows())
-    console.log(streak)
-    console.log(currentGame)
-  }, [streak, currentGame])
+
 
 
   // useEffect(() => {
