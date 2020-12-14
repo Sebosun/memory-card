@@ -13,18 +13,18 @@ function App() {
   const [currentGame, setCurrentGame] = useState([]);
   const [rowGeneration, setRowGeneration] = useState([]);
   const [characterData, setCharacterData] = useState(
-    [['Andrew', 'Andrew'],
-      ['Dudasz', 'Prezidente'],
-      ['C', 'C'],
-      ['D', 'D'],
-      ['E', 'E'],
-      ['F', 'F'],
-      ['G', 'G'],
-      ['H', 'H'],
-      ['J', 'J'],
-      ['K', 'K']]
+    [['https://i.imgur.com/naSTmQU.png' ,'Aphrodite', 'Goddess of Love'],
+    ['https://i.imgur.com/iD93qvy.png', 'Ares', 'God of War'],
+    ['https://i.imgur.com/jQH3Cs7.png', 'Artemis', 'Goddes of the hunt'],
+    ['https://i.imgur.com/WcesNjz.png', 'Athena', 'Goddess of wisdom'],
+    ['https://i.imgur.com/BT4GwI6.png', 'Chaos', 'Embodiment of the primordial void'],
+    ['https://i.imgur.com/bZiAoUP.png', 'Dionysus', 'God of Wine'],
+    ['https://i.imgur.com/qaR0Dkn.png', 'Hades', 'god of the Underworld'],
+    ['https://i.imgur.com/AM8v7ub.png', 'Hermes', 'God of commerce, trickery and travel'],
+    ['https://i.imgur.com/vDWluCq.png', 'Megaera', 'One of the Fury Sisters'],
+    ['https://i.imgur.com/nSVrdT7.png', 'Thanatos', 'god of Death']]
   );
-  
+
   // useEffect runs now if currentGame changes . The very first render (when the page loads) also generates the rows
   // which are used later to display the cards
   useEffect(() => {
@@ -33,7 +33,6 @@ function App() {
     console.log(streak)
     console.log(currentGame)
   }, [currentGame])
-
   const clickImage = (id) => {
     let currentGameValue = currentGame.includes(characterData[id])
     if (currentGameValue === false){
@@ -52,7 +51,6 @@ function App() {
     }
   }
 
-
   // stolen from stack, randomizes an array
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -70,23 +68,14 @@ function App() {
       rows.push(
         <DisplayCards 
           key={i} 
-          name={characterData[i][0]} 
-          click={() => clickImage(i)} 
-          occupation={characterData[i][1]}
+          image={characterData[i][0]}
+          name={characterData[i][1]}  
+          occupation={characterData[i][2]}
+          click={() => clickImage(i)}
         />)
       }
       return rows
     }
-
-
-
-
-  // useEffect(() => {
-  //   const addTopStreak = () =>{
-  //     setTopStreak(topStreak + 1);
-  //   }
-  //   document.addEventListener("click", addTopStreak);
-  // }, [topStreak])
 
   return (
     <div>
@@ -104,9 +93,11 @@ function App() {
           />
         </div>
       </div>
+
       <div className="cardsDisplay">
         {rowGeneration}
       </div> 
+      
     </div>
   );
 }
